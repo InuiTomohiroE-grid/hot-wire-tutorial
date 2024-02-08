@@ -1,5 +1,7 @@
 <%# Cat詳細（`#cat_1`となる要素）を削除する %>
 <%= turbo_stream.remove @cat %>
 
+<%= turbo_stream.update "cats_count", partial: "cats_count" %>
+
 <%# Flashを表示 %>
 <%= turbo_stream_flash %>

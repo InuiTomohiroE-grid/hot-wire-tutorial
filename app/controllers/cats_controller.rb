@@ -25,7 +25,6 @@ class CatsController < ApplicationController
   # POST /cats or /cats.json
   def create
     @cat = Cat.new(cat_params)
-
     if @cat.save
       flash.now.notice = "ねこを登録しました。"
     else
@@ -46,7 +45,6 @@ class CatsController < ApplicationController
   # DELETE /cats/1 or /cats/1.json
   def destroy
     @cat.destroy
-    render turbo_stream: turbo_stream.remove('cats_count', partial: 'cats/cats_count', locals: { cats_count: @cats_count })
     flash.now.notice = "ねこを削除しました。"
   end
 
